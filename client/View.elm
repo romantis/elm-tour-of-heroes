@@ -11,9 +11,12 @@ import Routing exposing (Route(..), routeString)
 import Page.NotFound as NotFound
 import Page.Dashboard as Dashboard
 import Page.Heroes as Heroes
+import Page.HeroProfile as HeroProfile
 
 import Shared.Header as Header
 import Shared.Footer as Footer
+
+import String
 
 
 view : Model -> Html Msg
@@ -29,10 +32,17 @@ page : Model -> Html Msg
 page model = 
     case model.route of 
         DashboardRoute ->
-            Dashboard.view
+            Dashboard.view model.heroes
         
         HeroesRoute ->
             Heroes.view 
+        
+        HeroProfileRoute hero ->
+            HeroProfile.view
+                (List.filter
+                    (\h -> (String.toLower h.name) == hero) 
+                    model.heroes
+                ) 
         
         NotFoundRoute ->
             NotFound.view

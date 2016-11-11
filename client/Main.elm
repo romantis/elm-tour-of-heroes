@@ -6,7 +6,7 @@ import Messages exposing (Msg(..))
 import Models exposing (Model, initialModel)
 import View exposing (view)
 import Update exposing (update)
-import Routing exposing (Route(..))
+import Routing exposing (Route(..), routeString)
 
 
 
@@ -30,9 +30,15 @@ urlUpdate result oldModel =
     let
         currentRoute =
             Routing.routeFromResult result
+        headerModel =
+            .header oldModel
+                |> \m -> {m | pageRoute = routeString currentRoute}
         model =
             updModel 
-                {oldModel | route = currentRoute}  
+                {oldModel 
+                    | route = currentRoute
+                    , header = headerModel
+                }  
     in
         ( model
         , updCmd model 
