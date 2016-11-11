@@ -11,9 +11,9 @@ import Html.Attributes exposing (class, href, style)
 
 view : Html msg
 view  = 
-    div [class "container act-min-height"] 
-        [ div [ class "row" ]
-            [ div [ class "col-md-12" ]
+    div [class "container th-min-height"] 
+        [ div [ class "" ]
+            [ div [ class "" ]
                 [ div 
                     [ style
                         [ "padding" => "2rem"
@@ -31,14 +31,14 @@ view  =
                             ] 
                         ]
                         [ a 
-                            [ class "btn btn-primary btn-lg"
+                            [ class ""
                             , href "/" 
                             ]
-                            [ span [ class "glyphicon glyphicon-home" ] []
+                            [ span [ class "" ] []
                             , text "Take Me Home "
                             ]
                         , a 
-                            [ class "btn btn-default btn-lg"
+                            [ class ""
                             , href "mailto:support@act.com" ]
                             [ span [ class "glyphicon glyphicon-envelope" ] []
                             , text "Contact Support "
