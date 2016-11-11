@@ -7,14 +7,17 @@ import UrlParser exposing (..)
 
 type Route
     = NotFoundRoute 
-    | HomeRoute
+    | DashboardRoute
+    | HeroesRoute
 
 
 routeString : Route -> String
 routeString route =
     case route of 
-        HomeRoute ->
-            "home"
+        DashboardRoute ->
+            "dashboard"
+        HeroesRoute ->
+            "heroes"
         _ ->
             ""
         
@@ -22,8 +25,9 @@ routeString route =
 matchers : Parser (Route -> a) a
 matchers =
     oneOf
-        [ format HomeRoute (s "") 
-        , format HomeRoute (s "home")
+        [ format DashboardRoute (s "") 
+        , format DashboardRoute (s "dashboard")
+        , format HeroesRoute (s "heroes")
         ]
 
 
