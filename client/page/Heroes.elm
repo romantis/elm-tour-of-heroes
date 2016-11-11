@@ -7,5 +7,5 @@ import Html.Attributes exposing (class)
 
 view : Html msg
 view  = 
-    div [class ""] 
+    div [class "container th-min-height"] 
         [ h1 []  [text "Heroes Page"]]
