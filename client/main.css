@@ -1,6 +1,10 @@
 
 /*Footer*/
 
+* {
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
 .container {
     max-width: 90%;
     margin: 0 auto;
@@ -16,4 +20,19 @@
 /*Helper classes*/
 .th-min-height {
     min-height: calc(100vh - 142px);
+}
+
+
+/*navigation styles */
+
+nav a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: .5rem;
+    color: darkslateblue;
+    margin-left: 1rem;
+}
+
+nav a.active {
+    border-bottom: 3px solid mediumvioletred;
 }
