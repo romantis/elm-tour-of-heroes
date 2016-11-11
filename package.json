@@ -15,6 +15,7 @@
     "start": "webpack-dev-server"
   },
   "dependencies": {
+    "normalize.css": "^5.0.0"
   },
   "devDependencies": {
     "css-loader": "^0.25.0",
