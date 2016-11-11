@@ -15,7 +15,6 @@ import Navigation
 type alias Model =
     { pageRoute : String
     , menuItems : List String
-    , navbarCollapsed: Bool
     }
 
 
@@ -26,7 +25,7 @@ menuItems =
 
 init : String -> Model
 init route = 
-    Model route menuItems False
+    Model route menuItems
 
 type Msg 
     = Navigate String
