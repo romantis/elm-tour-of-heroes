@@ -11,7 +11,7 @@ view : Html msg
 view =
   footer 
     [ id "footer"
-    , class "act-footer__dark"
+    , class "th-footer__dark"
     , style ["padding" => "2.5rem 0"]
     ]
     [ div [ class "container text-center"] 
