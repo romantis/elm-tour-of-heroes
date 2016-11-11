@@ -10,7 +10,6 @@ import Routing exposing (Route(..))
 
 
 
-
 init : Result String Route -> ( Model, Cmd Msg )
 init result =
     let
@@ -23,7 +22,6 @@ init result =
         ( model
         , updCmd model 
         )
-
 
 
 
