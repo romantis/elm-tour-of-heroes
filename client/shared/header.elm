@@ -21,7 +21,7 @@ type alias Model =
 
 menuItems : List String
 menuItems = 
-    ["home"]
+    ["dashboard", "heroes"]
 
 
 init : String -> Model
