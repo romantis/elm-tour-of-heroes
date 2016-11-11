@@ -30,7 +30,6 @@ init route =
 
 type Msg 
     = Navigate String
-    | ToggleCollapseNovbar
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
@@ -41,10 +40,6 @@ update msg model =
             , Navigation.newUrl url
             )
         
-        ToggleCollapseNovbar ->
-            ( { model | navbarCollapsed = not model.navbarCollapsed}
-            , Cmd.none
-            )
 
 
 
@@ -54,44 +49,7 @@ view model =
     [ h1 [] [ text "Tour of Heroes"]
     , hr [] []
     , nav [ class "navbar navbar-default" ]
-        [ div [ class "container-fluid" ]
-            [ div [ class "navbar-header" ]
-                [ button 
-                    [ class "navbar-toggle collapsed"
-                    , type' "button"
-                    , onClick ToggleCollapseNovbar 
-                    ]
-                    [ span [ class "sr-only" ] [ text "Toggle navigation" ]
-                    , span [ class "icon-bar" ] []
-                    , span [ class "icon-bar" ] []
-                    , span [ class "icon-bar" ] []
-                    ]
-                , a 
-                    [ class "navbar-brand"
-                    , href "/"
-                    , hrefClick Navigate "/"
-                    ]
-                    [ text "ACT" ]
-                ]
-
-            , div 
-                [ classList
-                     [("collapse navbar-collapse", True)
-                     , ("in", model.navbarCollapsed)
-                     ]
-                ]
-                [ ul [ class "nav navbar-nav" ]
-                    (List.map (navItem model.pageRoute) model.menuItems)
-                    
-                , ul [ class "nav navbar-nav navbar-right" ]
-                    [ li []
-                        [ button [ class "btn btn-primary navbar-btn"]
-                            [ text "Sign Up" ]
-                        ]
-                    ]
-                ]
-            ]
-        ]
+        (List.map (navItem model.pageRoute) model.menuItems)        
     ]
 
 
@@ -101,13 +59,12 @@ navItem currentRoute route =
         url = 
             "/" ++ route
     in
-        li [ classList ["active" => (currentRoute == route) ] ]
-            [ a 
-                [ hrefClick Navigate url
-                , href url
-                ]
-                [ text route ]
+        a 
+            [ classList ["active" => (currentRoute == route) ]
+            , hrefClick Navigate url
+            , href url
             ]
+            [ text route ]
 
         
 
