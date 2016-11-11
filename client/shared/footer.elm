@@ -15,7 +15,7 @@ view =
     , style ["padding" => "2.5rem 0"]
     ]
     [ div [ class "container text-center"] 
-        [ text " © 2016 Amazon Comparable Tables "
+        [ text " © 2016 Tour of heroes "
         ]
     ]
 
