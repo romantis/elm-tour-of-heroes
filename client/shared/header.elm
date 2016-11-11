@@ -51,7 +51,9 @@ update msg model =
 view : Model -> Html Msg
 view model =
   header [ id "header"]
-    [ nav [ class "navbar navbar-default" ]
+    [ h1 [] [ text "Tour of Heroes"]
+    , hr [] []
+    , nav [ class "navbar navbar-default" ]
         [ div [ class "container-fluid" ]
             [ div [ class "navbar-header" ]
                 [ button 
