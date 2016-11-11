@@ -1,4 +1,4 @@
-module Page.Home exposing (..)
+module Page.Dashboard exposing (..)
 
 import Html exposing (Html, Attribute, div, h1, text)
 import Html.Attributes exposing (class)
@@ -7,5 +7,5 @@ import Html.Attributes exposing (class)
 
 view : Html msg
 view  = 
-    div [class "container act-min-height"] 
-        [ h1 []  [text "Amazon Comparable Tables"]]
+    div [class ""] 
+        [ h1 []  [text "Dashbeord Page"]]
