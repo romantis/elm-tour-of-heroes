@@ -1,5 +1,12 @@
 
 /*Footer*/
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+
 .th-footer__dark {
     background-color: #333;
     color: #eee;
