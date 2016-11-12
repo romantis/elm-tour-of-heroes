@@ -21,11 +21,15 @@ import String
 
 view : Model -> Html Msg
 view model =
-  div [] 
-    [ App.map HeaderMsg ( Header.view model.header)
-    , page model
-    , Footer.view 
-    ] 
+    let
+        route = 
+            routeString model.route
+    in
+        div [] 
+            [ Header.view route model.menuItems
+            , page model
+            , Footer.view 
+            ] 
 
 
 page : Model -> Html Msg

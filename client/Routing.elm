@@ -29,7 +29,7 @@ matchers =
         [ format DashboardRoute (s "") 
         , format DashboardRoute (s "dashboard")
         , format HeroesRoute (s "heroes")
-        , format HeroProfileRoute (s "heroes" </> string)
+        , format HeroProfileRoute (s "profile" </> string)
         ]
 
 
@@ -51,7 +51,7 @@ routeFromResult : Result String Route -> Route
 routeFromResult result =
     case result of
         Ok route ->
-            route
+             route
 
         Err string ->
             NotFoundRoute 

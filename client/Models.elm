@@ -1,13 +1,11 @@
 module Models exposing (..)
 
-import Routing exposing (routeString)
-import Shared.Header as Header
-
+import Routing
 
 
 type alias Model =
     { route : Routing.Route
-    , header : Header.Model
+    , menuItems :List String
     , heroes : List Hero
     }
 
@@ -22,7 +20,7 @@ type alias Hero =
 initialModel : Routing.Route -> Model
 initialModel route =
     { route = route
-    , header = Header.init (routeString route)
+    , menuItems  =["dashboard", "heroes"]
     , heroes = 
         [ Hero "Batman" 0
         , Hero "superman" 0

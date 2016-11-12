@@ -30,15 +30,10 @@ urlUpdate result oldModel =
     let
         currentRoute =
             Routing.routeFromResult result
-        headerModel =
-            .header oldModel
-                |> \m -> {m | pageRoute = routeString currentRoute}
+        
         model =
             updModel 
-                {oldModel 
-                    | route = currentRoute
-                    , header = headerModel
-                }  
+                {oldModel | route = currentRoute }  
     in
         ( model
         , updCmd model 
