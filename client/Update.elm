@@ -17,3 +17,8 @@ update msg model =
             ( model
             , Navigation.newUrl url
             ) 
+        
+        SelectHero hero ->
+            ( { model | selected = Just hero}
+            , Cmd.none
+            )

@@ -7,6 +7,7 @@ type alias Model =
     { route : Routing.Route
     , menuItems :List String
     , heroes : List Hero
+    , selected : Maybe Hero
     }
 
 
@@ -21,6 +22,7 @@ initialModel : Routing.Route -> Model
 initialModel route =
     { route = route
     , menuItems  =["dashboard", "heroes"]
+    , selected = Nothing
     , heroes = 
         [ Hero "Batman" 7
         , Hero "superman" 10
