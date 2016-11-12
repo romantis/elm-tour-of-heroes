@@ -1,6 +1,6 @@
 module Page.Heroes exposing (..)
 
-import Html exposing (Html, Attribute, div, h1, text, ul, li, strong)
+import Html exposing (Html, Attribute, div, h1, text, ul, li, strong, button, span)
 import Html.Attributes exposing (class, href, classList)
 import Html.Events exposing (onClick)
 
@@ -22,14 +22,20 @@ heroesList: Maybe Hero -> List Hero -> List (Html Msg)
 heroesList mselected =
     List.sortBy .name >>
     List.map 
-        (\h -> li 
-            [ onClick <| SelectHero h
-            , classList 
-                [ "selected" => (isSelected h mselected) ]
-            ]
+        (\h -> li [] 
+            
             [ strong [] [ text <| toString h.rating ]
             , text " "
-            , text h.name
+            , span 
+                [ onClick <| SelectHero h
+                , classList 
+                    [ "selected" => (isSelected h mselected) ]
+                ] 
+                [ text h.name ]
+            , text " "
+            , button 
+                [ onClick <| DeleteHero h] 
+                [ text "Delete"]
             ] 
         )
 

@@ -22,3 +22,11 @@ update msg model =
             ( { model | selected = Just hero}
             , Cmd.none
             )
+
+        
+        DeleteHero hero ->
+            ( { model 
+                | heroes = List.filter (\h -> h /= hero ) model.heroes 
+                }
+            , Cmd.none
+            )

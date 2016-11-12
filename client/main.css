@@ -38,7 +38,7 @@ nav a.active {
 }
 
 
-li.selected {
+.selected {
     border-bottom: 1px solid lightskyblue;
     background-color: hsla(203,92%,75%,.3);
 }
