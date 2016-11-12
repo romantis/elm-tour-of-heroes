@@ -11,12 +11,12 @@ import Routing exposing (Route(..), routeString)
 import Page.NotFound as NotFound
 import Page.Dashboard as Dashboard
 import Page.Heroes as Heroes
-import Page.HeroProfile as HeroProfile
+import Page.HeroDetails as HeroDetails 
 
 import Shared.Header as Header
 import Shared.Footer as Footer
 
-import String
+-- import String
 
 
 view : Model -> Html Msg
@@ -39,14 +39,14 @@ page model =
             Dashboard.view model.heroes
         
         HeroesRoute ->
-            Heroes.view model.selected model.heroes
+            Heroes.view model.selected model.heroes model.newHero
         
-        HeroProfileRoute hero ->
-            HeroProfile.view
-                (List.filter
-                    (\h -> (String.toLower h.name) == hero) 
-                    model.heroes
-                ) 
+        HeroDetailsRoute _ ->
+            HeroDetails.view model.updHero
+                -- (List.filter
+                --     (\h -> h.name == hero) 
+                --     model.heroes
+                -- ) 
         
         NotFoundRoute ->
-            NotFound.view
+            NotFound.view 

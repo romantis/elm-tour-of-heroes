@@ -6,8 +6,10 @@ import Routing
 type alias Model =
     { route : Routing.Route
     , menuItems :List String
-    , heroes : List Hero
     , selected : Maybe Hero
+    , newHero : String
+    , updHero : Maybe Hero
+    , heroes : List Hero
     }
 
 
@@ -23,6 +25,8 @@ initialModel route =
     { route = route
     , menuItems  =["dashboard", "heroes"]
     , selected = Nothing
+    , newHero = ""
+    , updHero = Nothing
     , heroes = 
         [ Hero "Batman" 7
         , Hero "superman" 10

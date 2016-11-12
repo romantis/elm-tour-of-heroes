@@ -9,7 +9,7 @@ type Route
     = NotFoundRoute 
     | DashboardRoute
     | HeroesRoute
-    | HeroProfileRoute String
+    | HeroDetailsRoute String
 
 
 routeString : Route -> String
@@ -29,7 +29,7 @@ matchers =
         [ format DashboardRoute (s "") 
         , format DashboardRoute (s "dashboard")
         , format HeroesRoute (s "heroes")
-        , format HeroProfileRoute (s "profile" </> string)
+        , format HeroDetailsRoute (s "details" </> string)
         ]
 
 

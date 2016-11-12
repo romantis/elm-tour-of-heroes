@@ -1,21 +1,24 @@
 module Page.Heroes exposing (..)
 
-import Html exposing (Html, Attribute, div, h1, text, ul, li, strong, button, span)
-import Html.Attributes exposing (class, href, classList)
-import Html.Events exposing (onClick)
+import Html exposing (..)
+import Html.Attributes exposing (class, href, classList, type', placeholder, value)
+import Html.Events exposing (onClick, onInput)
 
 import Models exposing (Hero)
 import Messages exposing (Msg(..))
 
+import String
 
 (=>) = (,)
 
-view: Maybe Hero -> List Hero -> Html Msg
-view mselected heroes = 
+view: Maybe Hero -> List Hero -> String -> Html Msg
+view mselected heroes newHero = 
     div [class "container th-min-height"] 
         [ h1 []  [text "My Heroes"]
+        , addHeroViev newHero
         , ul []
             (heroesList mselected heroes)
+        , myHeroView mselected
         ]
 
 heroesList: Maybe Hero -> List Hero -> List (Html Msg)
@@ -38,6 +41,36 @@ heroesList mselected =
                 [ text "Delete"]
             ] 
         )
+
+myHeroView mhero =
+    case mhero of 
+        Just h ->
+            div []
+                [ h2 [] [ text <| String.toUpper h.name ++ " is my hero"]
+                , button 
+                    [ onClick <| Navigate ("/details/" ++ h.name)] 
+                    [ text "View Details"] 
+                ]
+            
+        Nothing -> 
+            text ""
+
+addHeroViev newHero =
+    div [] 
+        [ input 
+            [ onInput InputHeroName
+            , type' "text"
+            , value newHero
+            , placeholder "Name" 
+            ] []
+        , button 
+            [ onClick AddHero
+            , class "th-btn"
+            ] 
+            [ text "add Hero"]
+        ]
+
+
 
 isSelected hero mselected =
     case mselected of 
