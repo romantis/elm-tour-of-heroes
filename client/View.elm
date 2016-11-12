@@ -39,7 +39,7 @@ page model =
             Dashboard.view model.heroes
         
         HeroesRoute ->
-            Heroes.view 
+            Heroes.view model.heroes
         
         HeroProfileRoute hero ->
             HeroProfile.view
