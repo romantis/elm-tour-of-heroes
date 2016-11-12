@@ -22,8 +22,28 @@ initialModel route =
     { route = route
     , menuItems  =["dashboard", "heroes"]
     , heroes = 
-        [ Hero "Batman" 0
-        , Hero "superman" 0
-        , Hero "Hulk" 0
+        [ Hero "Batman" 7
+        , Hero "superman" 10
+        , Hero "Hulk" 10
+        , Hero "Spiderman" 8
+        , Hero "Magneto" 6
+        , Hero "Mistique" 2
+        , Hero "Wolverine" 5
+        , Hero "Apocalypse" 10
+        , Hero "Thor" 10
+        , Hero "Loki" 4
+        , Hero "Ironman" 7
+        , Hero "Quicksilver" 4
+        , Hero "Cyclops" 3
+        , Hero "Storm" 4
+        , Hero "Rogue" 5
+        , Hero "Iceman" 4
+        , Hero "Beast" 3
+        , Hero "Hawkeye" 2
+        , Hero "Nightcrawler" 4
+        , Hero "Angel" 3
+        , Hero "Vision" 10
+        , Hero "Ultron" 8
+        , Hero "BlackWidow" 2
         ]
     }
