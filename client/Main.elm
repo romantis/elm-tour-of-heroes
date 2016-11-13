@@ -33,7 +33,12 @@ urlUpdate result oldModel =
         
         model =
             updModel 
-                {oldModel | route = currentRoute }  
+                {oldModel 
+                    | route = currentRoute
+                    , selected = Nothing 
+                    , newHero = ""
+                    , updHero = Nothing
+                }  
     in
         ( model
         , updCmd model 
