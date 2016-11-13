@@ -45,15 +45,15 @@ page model =
             model.heroes
                 |> List.filter (\h -> h.name == hero)
                 |> List.head
-                |> viewDetailsHelper
+                |> viewDetailsHelper model.updHero
 
         
         NotFoundRoute ->
             NotFound.view 
 
-viewDetailsHelper mhero =
-    case mhero of 
+viewDetailsHelper mupdHero mHero  =
+    case mHero of 
         Just hero -> 
-            HeroDetails.view hero 
+            HeroDetails.view hero mupdHero 
         Nothing ->
             NotFound.view

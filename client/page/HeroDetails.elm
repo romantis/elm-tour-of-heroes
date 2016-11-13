@@ -8,21 +8,21 @@ import Messages exposing (Msg(..))
 import Models exposing (Hero)
 
 
-view : Hero -> Html Msg
-view hero  = 
+view : Hero -> Maybe Hero -> Html Msg
+view hero mupdHero  = 
     div 
         [ class "container th-min-height"
         ] 
         [ h1 []  
-            [text <|  hero.name ++ " Details"]
+            [text <| heroNameHelper hero.name mupdHero ++ " Details"]
         , dl[]
             [ dt [] [ text "Rating: "]
             , dd [] [ text <| toString hero.rating]
             , dt [] [ text "Name"]
             , dd [] 
                 [ input 
-                    [ value hero.name
-                    , onInput UpdHeroName
+                    [ value <| heroNameHelper hero.name mupdHero
+                    , onInput <| UpdHeroName hero
                     ] []
                 ]
             ]
@@ -37,3 +37,11 @@ view hero  =
                 [ text "Save"]
             ] 
         ]
+
+heroNameHelper : String -> Maybe Hero -> String
+heroNameHelper name mh =
+    case mh of 
+        Just h ->
+            h.name 
+        Nothing ->
+            name

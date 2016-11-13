@@ -7,6 +7,6 @@ type Msg
   | DeleteHero Hero
   | InputHeroName String 
   | AddHero
-  | UpdHeroName String
+  | UpdHeroName Hero String
   | ChangeName
   | NavigateBack

@@ -63,12 +63,9 @@ update msg model =
                 , Cmd.none
                 )
         
-        UpdHeroName name ->
+        UpdHeroName hero name ->
             ( { model 
-                | updHero = 
-                    Maybe.map 
-                        (\h -> {h | name = String.trim name}) 
-                        model.updHero
+                | updHero =Just {hero | name = String.trim name} 
               }
             , Cmd.none
             ) 
