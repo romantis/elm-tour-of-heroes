@@ -1,12 +1,11 @@
 module Page.Dashboard exposing (..)
 
-import Html exposing (Html, Attribute, div, h1, text, ul, li, a)
-import Html.Attributes exposing (class, href)
+import Html exposing (..)
+import Html.Attributes exposing (class, href, placeholder)
 import Models exposing (Hero)
 import Messages exposing (Msg(..))
 import Shared.Helpers exposing (hrefClick)
 
-import String exposing (toLower)
 
 
        
@@ -14,10 +13,18 @@ import String exposing (toLower)
 
 view: List Hero -> Html Msg
 view heroes = 
-    div [class "container th-min-height"] 
-        [ h1 []  [text "Dashboard Page"]
+    section [class "container th-min-height"] 
+        [ h1 []  [text "Top 5 Heroes"]
         , ul []
             (topHeroes <| bestHeroes heroes)
+        , section []
+            [ label []
+                [ text "Hero Search"
+                , input 
+                    [ placeholder" Name"
+                    ] []
+                ]
+            ]
         ]
 
 topHeroes: List Hero -> List (Html Msg)
