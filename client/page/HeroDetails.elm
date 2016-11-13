@@ -2,7 +2,7 @@ module Page.HeroDetails exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (class, value)
-import Html.Events exposing (onInput)
+import Html.Events exposing (onInput, onClick)
 
 import Messages exposing (Msg(..))
 import Models exposing (Hero)
@@ -14,10 +14,12 @@ view mhero  =
         hero =
             case mhero of
                 Just h -> h
-                Nothing -> Hero "Unknown" 0
+                Nothing -> Hero 0 "Unknown" 0
 
     in
-        div [class "container th-min-height"] 
+        div 
+            [ class "container th-min-height"
+            ] 
             [ h1 []  
                 [text <|  hero.name ++ " Details"]
             , dl[]
@@ -30,5 +32,15 @@ view mhero  =
                         , onInput UpdHeroName
                         ] []
                     ]
+                ]
+            , div [] 
+                [ button 
+                    [ onClick <| Navigate "/heroes/"
+                    ] 
+                    [text "Back"]
+                , button 
+                    [ onClick ChangeName
+                    ] 
+                    [ text "Save"]
                 ] 
-            ] 
+            ]

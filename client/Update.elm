@@ -53,7 +53,8 @@ update msg model =
                             { model 
                                 | newHero = ""
                                 , heroes = 
-                                    model.heroes ++ [Hero model.newHero 0] 
+                                    model.heroes ++ [ Hero model.nextId model.newHero 0]
+                                , nextId = model.nextId + 1 
                             }
                         False ->  
                             model 
@@ -74,24 +75,25 @@ update msg model =
         
         ChangeName ->
             let 
-                updName : String -> Hero -> Hero
-                updName nn h  =
-                    if nn /= h.name
-                        then h 
-                        else {h | name = nn}
+                updName : Hero -> Hero -> Hero
+                updName uh ch  =
+                    if uh.id /= ch.id
+                        then ch 
+                        else uh
 
                 newModel =
                     case model.updHero of
-                        Just h -> 
+                        Just uh -> 
                             { model 
                                 | selected = model.updHero
                                 , heroes = 
-                                    List.map (updName h.name) model.heroes 
+                                    List.map (updName uh) model.heroes 
                             }      
                         Nothing -> 
                             model
                 
             in 
                 ( newModel
-                , Cmd.none
+                , Navigation.newUrl "/heroes"
                 )
+                
