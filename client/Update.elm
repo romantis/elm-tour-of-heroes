@@ -94,6 +94,5 @@ update msg model =
                 
             in 
                 ( newModel
-                , Navigation.newUrl "/heroes"
+                , Navigation.back 1
                 )
-                
