@@ -25,8 +25,8 @@ topHeroes =
     List.map 
         (\h -> li []
             [ a
-                [ hrefClick Navigate <| "/details/" ++ toLower h.name  
-                , href <| "/details/" ++ toLower h.name
+                [ hrefClick Navigate <| "/details/" ++ h.name  
+                , href <| "/details/" ++ h.name
                 ]
                 [text h.name] 
             ] 

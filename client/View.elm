@@ -41,12 +41,19 @@ page model =
         HeroesRoute ->
             Heroes.view model.selected model.heroes model.newHero
         
-        HeroDetailsRoute _ ->
-            HeroDetails.view model.updHero
-                -- (List.filter
-                --     (\h -> h.name == hero) 
-                --     model.heroes
-                -- ) 
+        HeroDetailsRoute hero ->
+            model.heroes
+                |> List.filter (\h -> h.name == hero)
+                |> List.head
+                |> viewDetailsHelper
+
         
         NotFoundRoute ->
             NotFound.view 
+
+viewDetailsHelper mhero =
+    case mhero of 
+        Just hero -> 
+            HeroDetails.view hero 
+        Nothing ->
+            NotFound.view
