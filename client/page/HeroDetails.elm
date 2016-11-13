@@ -35,7 +35,7 @@ view mhero  =
                 ]
             , div [] 
                 [ button 
-                    [ onClick <| Navigate "/heroes/"
+                    [ onClick NavigateBack
                     ] 
                     [text "Back"]
                 , button 

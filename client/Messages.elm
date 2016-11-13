@@ -9,3 +9,4 @@ type Msg
   | AddHero
   | UpdHeroName String
   | ChangeName
+  | NavigateBack

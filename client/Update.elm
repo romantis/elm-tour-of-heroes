@@ -96,3 +96,6 @@ update msg model =
                 ( newModel
                 , Navigation.back 1
                 )
+        
+        NavigateBack ->
+            ( model, Navigation.back 1)
