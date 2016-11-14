@@ -14,7 +14,12 @@ update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
         LocationUpd location ->
-            ( { model | route = Routing.parser location }
+            ( { model 
+                | route = Routing.parser location
+                , selected = Nothing
+                , newHero = ""
+                , updHero = Nothing 
+                }
             , Cmd.none
             )
 
