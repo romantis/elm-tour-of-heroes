@@ -1,6 +1,6 @@
 module Main exposing (main)
 
-import Navigation
+import Navigation exposing (Location)
 
 import Messages exposing (Msg(..))
 import Models exposing (Model, initialModel)
@@ -10,51 +10,18 @@ import Routing exposing (Route(..), routeString)
 
 
 
-init : Result String Route -> ( Model, Cmd Msg )
-init result =
+init : Location -> ( Model, Cmd Msg )
+init location =
     let
         currentRoute =
-            Routing.routeFromResult result
+            Routing.parser location
         model =
             initialModel currentRoute
 
     in
         ( model
-        , updCmd model 
+        , Cmd.none 
         )
-
-
-
-urlUpdate : Result String Route -> Model -> ( Model, Cmd Msg )
-urlUpdate result oldModel =
-    let
-        currentRoute =
-            Routing.routeFromResult result
-        
-        model =
-            updModel 
-                {oldModel 
-                    | route = currentRoute
-                    , selected = Nothing 
-                    , newHero = ""
-                    , updHero = Nothing
-                }  
-    in
-        ( model
-        , updCmd model 
-        )
-
-updModel : Model -> Model
-updModel model =
-    case model.route of
-        _ ->  model
-
-
-updCmd : Model -> Cmd Msg
-updCmd model =
-    case model.route of 
-        _ ->
-            Cmd.none 
 
 
 
@@ -65,12 +32,11 @@ subscriptions _ =
 
 
 
-main : Program Never
+main : Program Never Model Msg
 main =
-    Navigation.program Routing.parser
+    Navigation.program LocationUpd
         { init = init
         , view = view
         , update = update
-        , urlUpdate = urlUpdate
         , subscriptions = subscriptions
         }

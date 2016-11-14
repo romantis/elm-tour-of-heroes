@@ -1,8 +1,11 @@
 module Messages exposing (..)
 import Models exposing (Hero)
 
+import Navigation exposing (Location)
+
 type Msg
-  = Navigate String
+  = LocationUpd Location
+  | Navigate String
   | SelectHero Hero
   | DeleteHero Hero
   | InputHeroName String 

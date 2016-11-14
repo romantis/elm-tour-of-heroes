@@ -4,15 +4,19 @@ import Messages exposing (Msg(..))
 import Models exposing (Model, Hero)
 
 import Navigation
+import Routing
 import String
 
-import Shared.Header as Header 
 
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
+        LocationUpd location ->
+            ( { model | route = Routing.parser location }
+            , Cmd.none
+            )
 
         Navigate url ->
             ( model

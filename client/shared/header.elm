@@ -1,7 +1,7 @@
 module Shared.Header exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, classList, style,  href, id, type')
+import Html.Attributes exposing (class, classList, style,  href, id)
 import Messages exposing(Msg(..))
 -- import Html.Events exposing (onClick)
 import Shared.Helpers exposing (hrefClick)

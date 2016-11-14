@@ -1,7 +1,7 @@
 module Page.Heroes exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, href, classList, type', placeholder, value)
+import Html.Attributes exposing (class, href, classList, type_, placeholder, value)
 import Html.Events exposing (onClick, onInput)
 
 import Models exposing (Hero)
@@ -59,7 +59,7 @@ addHeroViev newHero =
     div [] 
         [ input 
             [ onInput InputHeroName
-            , type' "text"
+            , type_ "text"
             , value newHero
             , placeholder "Name" 
             ] []

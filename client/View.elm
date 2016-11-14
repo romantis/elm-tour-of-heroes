@@ -2,7 +2,7 @@ module View exposing (view)
 
 import Html exposing (Html, div, text, h1)
 -- import Html.Attributes exposing (class)
-import Html.App as App
+import Html
 
 import Messages exposing (Msg(..))
 import Models exposing (Model)

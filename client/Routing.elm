@@ -1,6 +1,5 @@
 module Routing exposing (..)
 
-import String
 import Navigation
 import UrlParser exposing (..)
 
@@ -23,35 +22,21 @@ routeString route =
             ""
         
 
-matchers : Parser (Route -> a) a
-matchers =
+route : Parser (Route -> c) c
+route =
     oneOf
-        [ format DashboardRoute (s "") 
-        , format DashboardRoute (s "dashboard")
-        , format HeroesRoute (s "heroes")
-        , format HeroDetailsRoute (s "details" </> string)
+        [ map DashboardRoute (s "") 
+        , map DashboardRoute (s "dashboard")
+        , map HeroesRoute (s "heroes")
+        , map HeroDetailsRoute (s "details" </> string)
         ]
 
 
+parser : Navigation.Location -> Route
+parser location =
+     case parsePath route location of
+        Just route ->
+            route
 
-pathParser : Navigation.Location -> Result String Route
-pathParser location =
-    location.pathname
-        |> String.dropLeft 1
-        |> parse identity matchers
-
-
-
-parser : Navigation.Parser (Result String Route)
-parser =
-    Navigation.makeParser pathParser
-
-
-routeFromResult : Result String Route -> Route
-routeFromResult result =
-    case result of
-        Ok route ->
-             route
-
-        Err string ->
-            NotFoundRoute 
+        Nothing ->
+            NotFoundRoute    
