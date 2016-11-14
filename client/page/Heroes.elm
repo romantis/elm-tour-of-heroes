@@ -71,7 +71,6 @@ addHeroViev newHero =
         ]
 
 
-
 isSelected hero mselected =
     case mselected of 
         Just h -> 

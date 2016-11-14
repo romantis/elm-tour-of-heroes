@@ -13,3 +13,4 @@ type Msg
   | UpdHeroName Hero String
   | ChangeName
   | NavigateBack
+  | Search String

@@ -18,7 +18,8 @@ update msg model =
                 | route = Routing.parser location
                 , selected = Nothing
                 , newHero = ""
-                , updHero = Nothing 
+                , search = ""
+                , updHero = Nothing
                 }
             , Cmd.none
             )
@@ -105,3 +106,9 @@ update msg model =
         
         NavigateBack ->
             ( model, Navigation.back 1)
+        
+
+        Search s ->
+            ( {model | search = s}
+            , Cmd.none
+            )

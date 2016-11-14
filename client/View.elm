@@ -36,7 +36,7 @@ page : Model -> Html Msg
 page model = 
     case model.route of 
         DashboardRoute ->
-            Dashboard.view model.heroes
+            Dashboard.view model.search model.heroes
         
         HeroesRoute ->
             Heroes.view model.selected model.heroes model.newHero
