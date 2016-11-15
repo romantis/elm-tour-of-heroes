@@ -14,10 +14,10 @@ import String
 
 view: Maybe Hero -> List Hero -> String -> Html Msg
 view mselected heroes newHero = 
-    div [class "container th-min-height"] 
-        [ h1 []  [text "My Heroes"]
+    div [class ""] 
+        [ h2 []  [text "My Heroes"]
         , addHeroViev newHero
-        , ul []
+        , ul [ class "heroes"]
             (heroesList mselected heroes)
         , myHeroView mselected
         ]
@@ -27,19 +27,24 @@ heroesList mselected =
     List.sortBy .id >>
     List.map 
         (\h -> li [] 
-            
-            [ strong [] [ text <| toString h.id ]
+            [ strong 
+                [ class "badge"] 
+                [ text <| toString h.id ]
             , text " "
             , span 
                 [ onClick <| SelectHero h
                 , classList 
-                    [ "selected" => (isSelected h mselected) ]
+                    [ "selected" => (isSelected h mselected)
+                    , "text" => True 
+                    ]
                 ] 
                 [ text h.name ]
             , text " "
             , button 
-                [ onClick <| DeleteHero h] 
-                [ text "Delete"]
+                [ onClick <| DeleteHero h
+                , class "delete"
+                ] 
+                [ text "x"]
             ] 
         )
 
@@ -58,7 +63,8 @@ myHeroView mhero =
 
 addHeroViev newHero =
     div [] 
-        [ input 
+        [ label [] [ text "Hero name"]
+        , input 
             [ onInput InputHeroName
             , type_ "text"
             , value newHero

@@ -23,7 +23,6 @@ view : PageRoute -> MenuItems -> Html Msg
 view route items =
   header [ id "header"]
     [ h1 [] [ text "Tour of Heroes"]
-    , hr [] []
     , nav [ class "navbar navbar-default" ]
         (List.map (navItem route) items)        
     ]

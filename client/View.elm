@@ -15,7 +15,6 @@ import Page.Heroes as Heroes
 import Page.HeroDetails as HeroDetails 
 
 import Shared.Header as Header
-import Shared.Footer as Footer
 
 -- import String
 

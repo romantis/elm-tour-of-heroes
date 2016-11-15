@@ -1,7 +1,7 @@
 module Page.Dashboard exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, href, placeholder, value)
+import Html.Attributes exposing (id, class, href, placeholder, value)
 import Html.Events exposing (onInput)
 import Http
 import Regex exposing (regex, caseInsensitive)
@@ -17,27 +17,46 @@ import Shared.Helpers exposing (hrefClick)
 
 view: String -> List Hero -> Html Msg
 view sq heroes = 
-    section [class "container th-min-height"] 
-        [ h1 []  [text "Top 5 Heroes"]
-        , ul []
-            (viewListHeroes <| bestHeroes heroes)
-        , section []
-            [ label []
-                [ text "Hero Search"
-                , input 
-                    [ placeholder" Name"
-                    , onInput Search 
-                    , value sq
-                    ] []
-                ]
+    div [class ""] 
+        [ h3 []  [text "Top Heroes"]
+        , div [ class "grid grid-pad" ]
+            (viewTopHeroes <| bestHeroes heroes)
+        , div [ id "search-component"]
+            [ h4 [] [ text "Hero Search" ]
+            , input 
+                [ id "search-box"
+                , placeholder" Name"
+                , onInput Search 
+                , value sq
+                ] []
             , viewSearchResults sq heroes
             ]
         ]
 
+
+viewTopHeroes: List Hero -> List (Html Msg)
+viewTopHeroes =
+    List.map 
+        (\h -> 
+            a 
+                [ class "col-1-4"
+                , href <| "/details/" ++ Http.encodeUri h.name
+                , hrefClick Navigate <| "/details/" ++ Http.encodeUri h.name
+                ] 
+                [ div [class "module hero"]
+                    [ h4 [] [text h.name]
+                    ]
+                ]
+        )
+
+
+
+
+
 viewListHeroes: List Hero -> List (Html Msg)
 viewListHeroes =
     List.map 
-        (\h -> li []
+        (\h -> div [ class "search-result"]
             [ a
                 [ hrefClick Navigate <| "/details/" ++ Http.encodeUri h.name  
                 , href <| "/details/" ++ Http.encodeUri h.name
@@ -48,7 +67,7 @@ viewListHeroes =
          
 bestHeroes : List Hero -> List Hero
 bestHeroes =
-    List.drop 1 >> List.take 5
+    List.drop 1 >> List.take 4
 
 
 viewSearchResults: String -> List Hero -> Html Msg

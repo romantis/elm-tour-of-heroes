@@ -1,10 +1,8 @@
 'use strict';
 
-require('normalize.css');
+// require('normalize.css');
 require('./main.css');
 
-
-// Require index.html so it gets copied to dist
 require('./index.html');
 
 var Elm = require('./Main.elm');
