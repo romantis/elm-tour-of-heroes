@@ -75,7 +75,7 @@ update msg model =
         
         UpdHeroName hero name ->
             ( { model 
-                | updHero =Just {hero | name = String.trim name} 
+                | updHero =Just {hero | name = name} 
               }
             , Cmd.none
             ) 

@@ -3,6 +3,7 @@ module Page.Heroes exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (class, href, classList, type_, placeholder, value)
 import Html.Events exposing (onClick, onInput)
+import Http
 
 import Models exposing (Hero)
 import Messages exposing (Msg(..))
@@ -48,7 +49,7 @@ myHeroView mhero =
             div []
                 [ h2 [] [ text <| String.toUpper h.name ++ " is my hero"]
                 , button 
-                    [ onClick <| Navigate ("/details/" ++ h.name)] 
+                    [ onClick <| Navigate ("/details/" ++ Http.encodeUri h.name)] 
                     [ text "View Details"] 
                 ]
             

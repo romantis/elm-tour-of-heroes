@@ -3,6 +3,7 @@ module Page.Dashboard exposing (..)
 import Html exposing (..)
 import Html.Attributes exposing (class, href, placeholder, value)
 import Html.Events exposing (onInput)
+import Http
 import Regex exposing (regex, caseInsensitive)
 
 import Models exposing (Hero)
@@ -38,8 +39,8 @@ viewListHeroes =
     List.map 
         (\h -> li []
             [ a
-                [ hrefClick Navigate <| "/details/" ++ h.name  
-                , href <| "/details/" ++ h.name
+                [ hrefClick Navigate <| "/details/" ++ Http.encodeUri h.name  
+                , href <| "/details/" ++ Http.encodeUri h.name
                 ]
                 [text h.name] 
             ] 

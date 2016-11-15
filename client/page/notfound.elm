@@ -1,8 +1,7 @@
 module Page.NotFound exposing (..)
 
-import Html exposing (Html, Attribute, div, h1, h2, p, text, span, a )
+import Html exposing (..)
 import Html.Attributes exposing (class, href, style)
--- import Html.App as App
 
 
 

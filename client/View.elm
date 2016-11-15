@@ -7,6 +7,7 @@ import Html
 import Messages exposing (Msg(..))
 import Models exposing (Model)
 import Routing exposing (Route(..), routeString)
+import Http
 
 import Page.NotFound as NotFound
 import Page.Dashboard as Dashboard
@@ -38,18 +39,27 @@ page model =
         DashboardRoute ->
             Dashboard.view model.search model.heroes
         
+
         HeroesRoute ->
             Heroes.view model.selected model.heroes model.newHero
         
-        HeroDetailsRoute hero ->
-            model.heroes
-                |> List.filter (\h -> h.name == hero)
-                |> List.head
-                |> viewDetailsHelper model.updHero
 
+        HeroDetailsRoute encodedHero ->
+            let
+                hero = 
+                    Maybe.withDefault encodedHero (Http.decodeUri encodedHero)
+            in
+                model.heroes
+                    |> List.filter (\h -> h.name == hero)
+                    |> List.head
+                    |> viewDetailsHelper model.updHero
         
+
         NotFoundRoute ->
             NotFound.view 
+
+
+
 
 viewDetailsHelper mupdHero mHero  =
     case mHero of 
