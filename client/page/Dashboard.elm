@@ -47,7 +47,7 @@ viewListHeroes =
          
 bestHeroes : List Hero -> List Hero
 bestHeroes =
-    List.sortWith flippedComparison >> List.take 5
+    List.drop 1 >> List.take 5
 
 
 viewSearchResults: String -> List Hero -> Html Msg
@@ -63,9 +63,3 @@ viewSearchResults sq heroes =
             text ""
 
 
-flippedComparison : Hero -> Hero -> Order
-flippedComparison a b =
-    case compare a.rating b.rating of
-      LT -> GT
-      EQ -> EQ
-      GT -> LT

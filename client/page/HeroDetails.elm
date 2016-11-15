@@ -16,8 +16,8 @@ view hero mupdHero  =
         [ h1 []  
             [text <| heroNameHelper hero.name mupdHero ++ " Details"]
         , dl[]
-            [ dt [] [ text "Rating: "]
-            , dd [] [ text <| toString hero.rating]
+            [ dt [] [ text "ID: "]
+            , dd [] [ text <| toString hero.id]
             , dt [] [ text "Name"]
             , dd [] 
                 [ input 

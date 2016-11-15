@@ -63,7 +63,7 @@ update msg model =
                             { model 
                                 | newHero = ""
                                 , heroes = 
-                                    model.heroes ++ [ Hero model.nextId model.newHero 0]
+                                    model.heroes ++ [ Hero model.nextId model.newHero]
                                 , nextId = model.nextId + 1 
                             }
                         False ->  

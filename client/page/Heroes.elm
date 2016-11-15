@@ -23,11 +23,11 @@ view mselected heroes newHero =
 
 heroesList: Maybe Hero -> List Hero -> List (Html Msg)
 heroesList mselected =
-    List.sortBy .name >>
+    List.sortBy .id >>
     List.map 
         (\h -> li [] 
             
-            [ strong [] [ text <| toString h.rating ]
+            [ strong [] [ text <| toString h.id ]
             , text " "
             , span 
                 [ onClick <| SelectHero h
