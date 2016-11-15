@@ -29,7 +29,6 @@ view model =
         div [] 
             [ Header.view route model.menuItems
             , page model
-            , Footer.view 
             ] 
 
 
