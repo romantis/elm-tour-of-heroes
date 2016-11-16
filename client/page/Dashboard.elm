@@ -17,7 +17,7 @@ import Shared.Helpers exposing (hrefClick)
 
 view: String -> List Hero -> Html Msg
 view sq heroes = 
-    div [class ""] 
+    div [class "dashboard"] 
         [ h3 []  [text "Top Heroes"]
         , div [ class "grid grid-pad" ]
             (viewTopHeroes <| bestHeroes heroes)

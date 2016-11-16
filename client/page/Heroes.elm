@@ -1,7 +1,7 @@
 module Page.Heroes exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, href, classList, type_, placeholder, value)
+import Html.Attributes exposing (class, href, classList, placeholder, value)
 import Html.Events exposing (onClick, onInput)
 import Http
 
@@ -14,10 +14,10 @@ import String
 
 view: Maybe Hero -> List Hero -> String -> Html Msg
 view mselected heroes newHero = 
-    div [class ""] 
+    div [class "heroes"] 
         [ h2 []  [text "My Heroes"]
         , addHeroViev newHero
-        , ul [ class "heroes"]
+        , ul [ class ""]
             (heroesList mselected heroes)
         , myHeroView mselected
         ]
@@ -26,26 +26,20 @@ heroesList: Maybe Hero -> List Hero -> List (Html Msg)
 heroesList mselected =
     List.sortBy .id >>
     List.map 
-        (\h -> li [] 
-            [ strong 
-                [ class "badge"] 
-                [ text <| toString h.id ]
-            , text " "
-            , span 
+        (\h -> 
+            li 
                 [ onClick <| SelectHero h
                 , classList 
-                    [ "selected" => (isSelected h mselected)
-                    , "text" => True 
-                    ]
+                    [ "selected" => (isSelected h mselected) ]
                 ] 
-                [ text h.name ]
-            , text " "
-            , button 
-                [ onClick <| DeleteHero h
-                , class "delete"
+                [ strong [ class "badge"] [ text <| toString h.id ] 
+                , span [ class "text"] [ text h.name ] 
+                , button 
+                    [ onClick <| DeleteHero h
+                    , class "delete"
+                    ] 
+                    [ text "x"]
                 ] 
-                [ text "x"]
-            ] 
         )
 
 myHeroView mhero =
@@ -62,19 +56,14 @@ myHeroView mhero =
             text ""
 
 addHeroViev newHero =
-    div [] 
-        [ label [] [ text "Hero name"]
+    div [ class "add-hero"] 
+        [ label [] [ text "Hero name:"]
         , input 
             [ onInput InputHeroName
-            , type_ "text"
             , value newHero
             , placeholder "Name" 
             ] []
-        , button 
-            [ onClick AddHero
-            , class "th-btn"
-            ] 
-            [ text "add Hero"]
+        , button [ onClick AddHero ] [ text "Add"]
         ]
 
 

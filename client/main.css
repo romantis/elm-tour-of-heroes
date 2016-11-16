@@ -1,48 +1,32 @@
 /* Master Styles */
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
-}
-h2, h3 {
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;
+* {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
+
 body {
   margin: 2em;
 }
-body, input[text], button {
-  color: #888;
-  font-family: Cambria, Georgia;
-}
-a {
-  cursor: pointer;
-  cursor: hand;
-}
+
+
 button {
-  font-family: Arial;
+  color: #333;
   background-color: #eee;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
 }
+
 button:hover {
   background-color: #cfd8dc;
 }
-button:disabled {
-  background-color: #eee;
-  color: #aaa;
-  cursor: auto;
-}
+
 
 /* Navigation link styles */
 nav a {
   padding: 5px 10px;
   text-decoration: none;
-  margin-top: 10px;
+  margin-right: 10px;
   display: inline-block;
   background-color: #eee;
   border-radius: 4px;
@@ -60,9 +44,8 @@ nav a.active {
 
 
 
-/*Dashboard Styles
+/*Dashboard Styles*/
 
-*/
 
 [class*='col-'] {
   float: left;
@@ -72,23 +55,22 @@ nav a.active {
 [class*='col-']:last-of-type {
   padding-right: 0;
 }
-a {
+.dashboard a {
   text-decoration: none;
 }
 *, *:after, *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-h3 {
-  text-align: center; margin-bottom: 0;
+.dashboard h3 {
+  text-align: center; 
+  margin-bottom: 0;
 }
-h4 {
-  position: relative;
+
+.grid-pad {
+  padding: 10px 0;
 }
-.grid {
-  margin: 0;
-  display: inline-block;
+.grid-pad > [class*='col-']:last-of-type {
+  padding-right: 20px;
 }
 .col-1-4 {
   width: 25%;
@@ -107,15 +89,9 @@ h4 {
   cursor: pointer;
   color: #607d8b;
 }
-.grid-pad {
-  padding: 10px 0;
-}
-.grid-pad > [class*='col-']:last-of-type {
-  padding-right: 20px;
-}
 @media (max-width: 600px) {
   .module {
-    font-size: 10px;
+    font-size: 1em;
     max-height: 75px; }
 }
 @media (max-width: 1024px) {
@@ -138,20 +114,20 @@ h4 {
   background-color: #CFD8DC !important;
   color: white;
 }
-.heroes {
+.heroes ul {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
 }
 .heroes li {
+  display: flex;
+  align-items: center;
+  justify-content:space-between; 
   cursor: pointer;
-  position: relative;
-  left: 0;
   background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 1.6em;
+  margin-top: .5em;
+  line-height: 40px;
   border-radius: 4px;
 }
 .heroes li:hover {
@@ -163,44 +139,25 @@ h4 {
   background-color: #BBD8DC !important;
   color: white;
 }
-.heroes .text {
-  position: relative;
-  top: -3px;
-}
 .heroes .badge {
-  display: inline-block;
   font-size: small;
   color: white;
-  padding: 0.8em 0.7em 0 0.7em;
+  padding: 0 .8em;
   background-color: #607D8B;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 1.8em;
-  margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
-button {
-  font-family: Arial;
-  background-color: #eee;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
-}
-button:hover {
-  background-color: #cfd8dc;
-}
 button.delete {
-  float:right;
-  margin-top: 2px;
-  margin-right: .8em;
+  margin-right: .6em;
   background-color: gray !important;
   color:white;
 }
 
+
+
+.add-hero label,
+.add-hero input {
+  margin-right: .5em;
+}
 
 
 /*Search styles*/
@@ -218,4 +175,23 @@ button.delete {
 #search-box{
   width: 200px;
   height: 20px;
+}
+
+
+
+
+
+/*Hero Hetail*/
+
+label {
+  display: inline-block;
+  width: 3em;
+  margin: .5em 0;
+  color: #607D8B;
+  font-weight: bold;
+}
+input {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
 }

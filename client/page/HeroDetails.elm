@@ -13,18 +13,18 @@ view hero mupdHero  =
     div 
         [ class "container th-min-height"
         ] 
-        [ h1 []  
-            [text <| heroNameHelper hero.name mupdHero ++ " Details"]
-        , dl[]
-            [ dt [] [ text "ID: "]
-            , dd [] [ text <| toString hero.id]
-            , dt [] [ text "Name"]
-            , dd [] 
-                [ input 
-                    [ value <| heroNameHelper hero.name mupdHero
-                    , onInput <| UpdHeroName hero
-                    ] []
-                ]
+        [ h2 []  
+            [text <| heroNameHelper hero.name mupdHero ++ " details!"]
+        , div []
+            [ label [] [ text "ID: "]
+            , text <| toString hero.id
+            ]
+        , div []
+            [ label [] [ text "Name:"]
+            , input 
+                [ value <| heroNameHelper hero.name mupdHero
+                , onInput <| UpdHeroName hero
+                ] []
             ]
         , div [] 
             [ button 
