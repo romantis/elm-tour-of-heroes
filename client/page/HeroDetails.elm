@@ -11,7 +11,7 @@ import Models exposing (Hero)
 view : Hero -> Maybe Hero -> Html Msg
 view hero mupdHero  = 
     div 
-        [ class "container th-min-height"
+        [ class "hero-details"
         ] 
         [ h2 []  
             [text <| heroNameHelper hero.name mupdHero ++ " details!"]
@@ -26,16 +26,12 @@ view hero mupdHero  =
                 , onInput <| UpdHeroName hero
                 ] []
             ]
-        , div [] 
-            [ button 
-                [ onClick NavigateBack
-                ] 
-                [text "Back"]
-            , button 
-                [ onClick ChangeName
-                ] 
-                [ text "Save"]
-            ] 
+        , button 
+            [ onClick NavigateBack ] 
+            [ text "Back"]
+        , button 
+            [ onClick ChangeName ] 
+            [ text "Save"]
         ]
 
 heroNameHelper : String -> Maybe Hero -> String

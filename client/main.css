@@ -13,8 +13,9 @@ button {
   color: #333;
   background-color: #eee;
   border: none;
-  padding: 5px 10px;
+  padding: .4em .8em;
   border-radius: 4px;
+  margin-right: .4em;
 }
 
 button:hover {
@@ -23,6 +24,7 @@ button:hover {
 
 
 /* Navigation link styles */
+
 nav a {
   padding: 5px 10px;
   text-decoration: none;
@@ -42,6 +44,18 @@ nav a.active {
   color: #039be5;
 }
 
+
+label {
+  display: inline-block;
+  min-width: 5em;
+  color: #607D8B;
+  font-weight: bold;
+}
+input {
+  height: 2em;
+  padding-left: .4em;
+  margin-right: .4em;
+}
 
 
 /*Dashboard Styles*/
@@ -72,9 +86,13 @@ nav a.active {
 .grid-pad > [class*='col-']:last-of-type {
   padding-right: 20px;
 }
-.col-1-4 {
-  width: 25%;
+
+@media (min-width: 600px) {
+  .col-1-4 {
+    width: 25%;
+  }
 }
+
 .module {
   padding: 20px;
   text-align: center;
@@ -154,9 +172,9 @@ button.delete {
 
 
 
-.add-hero label,
-.add-hero input {
+.add-hero label {
   margin-right: .5em;
+  width: auto;
 }
 
 
@@ -179,19 +197,12 @@ button.delete {
 
 
 
+/*Hero details*/
 
-
-/*Hero Hetail*/
-
-label {
-  display: inline-block;
-  width: 3em;
-  margin: .5em 0;
-  color: #607D8B;
-  font-weight: bold;
+.hero-details div {
+  margin-bottom: 1em;
 }
-input {
-  height: 2em;
-  font-size: 1em;
-  padding-left: .4em;
+
+.hero-details div:last-of-type {
+  margin-bottom: 2em;
 }
