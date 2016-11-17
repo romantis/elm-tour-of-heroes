@@ -113,3 +113,12 @@ update msg model =
             ( {model | search = s}
             , Cmd.none
             )
+
+        
+        GetHeroes ( Ok heroes) ->
+            ( {model | heroes = heroes}
+            , Cmd.none
+            )
+
+        GetHeroes ( Err _) ->
+            (model, Cmd.none)

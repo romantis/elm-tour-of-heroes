@@ -1,7 +1,9 @@
 module Messages exposing (..)
-import Models exposing (Hero)
 
+import Http
 import Navigation exposing (Location)
+
+import Models exposing (Hero)
 
 type Msg
   = LocationUpd Location
@@ -14,3 +16,4 @@ type Msg
   | ChangeName
   | NavigateBack
   | Search String
+  | GetHeroes (Result Http.Error (List Hero))

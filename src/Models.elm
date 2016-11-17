@@ -1,5 +1,7 @@
 module Models exposing (..)
+
 import Json.Decode as Json
+
 
 import Routing
 
@@ -22,40 +24,9 @@ type alias Hero =
     }
     
 
-
-jsonHeroes = """[
-  { "id": 11, "name": "Mr. Nice" },
-  { "id": 12, "name": "Narco" },
-  { "id": 13, "name": "Bombasto" },
-  { "id": 14, "name": "Celeritas" },
-  { "id": 15, "name": "Magneta" },
-  { "id": 16, "name": "RubberMan" },
-  { "id": 17, "name": "Dynama" },
-  { "id": 18, "name": "Dr IQ" },
-  { "id": 19, "name": "Magma" },
-  { "id": 20, "name": "Tornado" }
-]
-"""
-
-
-heroDecoder =
-    Json.list
-        (Json.map2 Hero
-            (Json.field "id" Json.int)
-            (Json.field "name" Json.string)
-        )
-
-encodedHeroes =
-    jsonHeroes
-        |> Json.decodeString heroDecoder
-        |> Result.mapError (Debug.log "Json decode Error: ")
-        |> Result.withDefault [] 
-
-
-
 initialModel : Routing.Route -> Model
 initialModel route =
-    { heroes = encodedHeroes
+    { heroes = []
     , selected = Nothing
     , menuItems  =["dashboard", "heroes"]
     , newHero = ""
@@ -64,3 +35,12 @@ initialModel route =
     , search = ""
     , updHero = Nothing
     }
+
+
+heroDecoder : Json.Decoder (List Hero)
+heroDecoder =
+    Json.list
+        (Json.map2 Hero
+            (Json.field "id" Json.int)
+            (Json.field "name" Json.string)
+        )

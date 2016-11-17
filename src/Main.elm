@@ -7,6 +7,7 @@ import Models exposing (Model, initialModel)
 import View exposing (view)
 import Update exposing (update)
 import Routing exposing (Route(..), routeString)
+import Commands exposing (getHeroes)
 
 
 
@@ -20,7 +21,7 @@ init location =
 
     in
         ( model
-        , Cmd.none 
+        , getHeroes 
         )
 
 
