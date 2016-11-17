@@ -1,14 +1,14 @@
-/* Master Styles */
+/*
+  Global styles
+*/
+
 * {
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-weight: lighter;
 }
-
 body {
   margin: 5%;
 }
-
-
 button {
   color: #333;
   background-color: #eee;
@@ -17,13 +17,26 @@ button {
   border-radius: 4px;
   margin-right: .4em;
 }
-
 button:hover {
   background-color: #cfd8dc;
 }
+label {
+  display: inline-block;
+  min-width: 5em;
+  color: #607D8B;
+  font-weight: bold;
+}
+input {
+  height: 2em;
+  padding-left: .4em;
+  margin-right: .4em;
+}
 
 
-/* Navigation link styles */
+
+/* 
+  Navigation ltyles 
+*/
 
 nav a {
   padding: 5px 10px;
@@ -45,21 +58,12 @@ nav a.active {
 }
 
 
-label {
-  display: inline-block;
-  min-width: 5em;
-  color: #607D8B;
-  font-weight: bold;
-}
-input {
-  height: 2em;
-  padding-left: .4em;
-  margin-right: .4em;
-}
 
 
-/*Dashboard Styles*/
 
+/*
+  Dashboard Styles
+*/
 
 .hero-pad {
   box-sizing: border-box;
@@ -68,33 +72,26 @@ input {
   width: 100%;
   margin: 1em 1em 0 0;
 }
-
 .dashboard h3 {
   text-align: center; 
   margin-bottom: 0;
 }
-
 .grid {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: space-around;
 }
-
 @media(min-width:480px) {
   .grid .col-sm-1-4 {
     width: 46%;
   }
 }
-
 @media(min-width:768px) {
   .grid .col-md-1-4 {
     width: 22.5%;
   }
 }
-
-
-
 .module {
   padding: 20px;
   text-align: center;
@@ -128,8 +125,10 @@ input {
 
 
 
+/*
+  Heroes styles
+*/
 
-/*Heroes styles*/
 .selected {
   background-color: #CFD8DC !important;
   color: white;
@@ -171,16 +170,16 @@ button.delete {
   background-color: gray !important;
   color:white;
 }
-
-
-
 .add-hero label {
   margin-right: .5em;
   width: auto;
 }
 
 
-/*Search styles*/
+
+/*
+  Search styles
+*/
 .search-box ul {
   padding: 0;
   margin: 0;
@@ -190,7 +189,6 @@ button.delete {
   width: 200px;
   height: 20px;
 }
-
 .search-result {
   text-decoration: none;
   border-bottom: 1px solid gray;
@@ -202,21 +200,22 @@ button.delete {
   background-color: white;
   cursor: pointer;
 }
-
 .search-result:hover {
   background: #eee;
 }
-
 .search-result a {
   text-decoration: none;
 } 
 
-/*Hero details*/
 
+
+
+/*
+  Hero details
+*/
 .hero-details div {
   margin-bottom: 1em;
 }
-
 .hero-details div:last-of-type {
   margin-bottom: 2em;
 }
