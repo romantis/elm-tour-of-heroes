@@ -1,22 +1,20 @@
 {
-  "name": "amason-comparable-pages",
+  "name": "elm-tour-of-heroes",
   "version": "0.1.0",
-  "description": "SaaS amason comparable pages",
+  "description": "Elm implementation of tutorial for Angular2",
   "author": "Roman Tischenko",
   "repository": {
     "type": "git",
     "url": ""
   },
   "license": "",
-  "main": "src/client/index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
     "start": "webpack-dev-server"
   },
-  "dependencies": {
-    "normalize.css": "^5.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "css-loader": "^0.25.0",
     "elm-webpack-loader": "^3.0.6",
