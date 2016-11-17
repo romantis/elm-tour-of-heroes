@@ -40,7 +40,8 @@ update msg model =
         
         DeleteHero hero ->
             ( { model 
-                | heroes = List.filter (\h -> h /= hero ) model.heroes 
+                | heroes = List.filter (\h -> h /= hero ) model.heroes
+                , selected = Nothing 
                 }
             , Cmd.none
             )

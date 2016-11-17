@@ -28,12 +28,13 @@ heroesList mselected =
     List.map 
         (\h -> 
             li 
-                [ onClick <| SelectHero h
-                , classList 
+                [ classList
                     [ "selected" => (isSelected h mselected) ]
                 ] 
                 [ strong [ class "badge"] [ text <| toString h.id ] 
-                , span [ class "text"] [ text h.name ] 
+                , span 
+                    [ onClick <| SelectHero h ] 
+                    [ text h.name ] 
                 , button 
                     [ onClick <| DeleteHero h
                     , class "delete"
