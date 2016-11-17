@@ -1,10 +1,10 @@
-module Shared.Header exposing (..)
+module Views.Header exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (class, classList, style,  href, id)
 import Messages exposing(Msg(..))
--- import Html.Events exposing (onClick)
-import Shared.Helpers exposing (hrefClick)
+
+import Helpers exposing (hrefClick)
 
 
 (=>) : a -> b -> ( a, b )

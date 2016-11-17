@@ -1,7 +1,7 @@
 var path = require("path");
 
 module.exports = {
-    context: path.resolve('client'),
+    context: path.resolve('src'),
     entry: {
         app: [
             './index'

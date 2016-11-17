@@ -1,4 +1,4 @@
-module Shared.Helpers exposing (..)
+module Helpers exposing (..)
 
 import Html exposing (Attribute)
 import Html.Events exposing (onWithOptions, defaultOptions)

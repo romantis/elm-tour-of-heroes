@@ -1,4 +1,4 @@
-module Page.Heroes exposing (..)
+module Views.Heroes exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (class, href, classList, placeholder, value)

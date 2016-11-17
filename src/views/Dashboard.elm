@@ -1,4 +1,4 @@
-module Page.Dashboard exposing (..)
+module Views.Dashboard exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (id, class, href, placeholder, value)
@@ -8,7 +8,7 @@ import Regex exposing (regex, caseInsensitive)
 
 import Models exposing (Hero)
 import Messages exposing (Msg(..))
-import Shared.Helpers exposing (hrefClick)
+import Helpers exposing (hrefClick)
 
 
 

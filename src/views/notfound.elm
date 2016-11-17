@@ -1,4 +1,4 @@
-module Page.NotFound exposing (..)
+module Views.NotFound exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (class, href, style)

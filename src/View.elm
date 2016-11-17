@@ -9,12 +9,12 @@ import Models exposing (Model)
 import Routing exposing (Route(..), routeString)
 import Http
 
-import Page.NotFound as NotFound
-import Page.Dashboard as Dashboard
-import Page.Heroes as Heroes
-import Page.HeroDetails as HeroDetails 
+import Views.NotFound as NotFound
+import Views.Dashboard as Dashboard
+import Views.Heroes as Heroes
+import Views.HeroDetails as HeroDetails 
+import Views.Header as Header
 
-import Shared.Header as Header
 
 -- import String
 
