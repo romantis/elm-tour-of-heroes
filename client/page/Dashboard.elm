@@ -17,15 +17,14 @@ import Shared.Helpers exposing (hrefClick)
 
 view: String -> List Hero -> Html Msg
 view sq heroes = 
-    div [class "dashboard"] 
+    div [ class "dashboard" ] 
         [ h3 []  [text "Top Heroes"]
-        , div [ class "grid grid-pad" ]
+        , div [ class "grid" ]
             (viewTopHeroes <| bestHeroes heroes)
-        , div [ id "search-component"]
+        , div [ class "search-box" ]
             [ h4 [] [ text "Hero Search" ]
             , input 
-                [ id "search-box"
-                , placeholder" Name"
+                [ placeholder" Name"
                 , onInput Search 
                 , value sq
                 ] []
@@ -39,7 +38,7 @@ viewTopHeroes =
     List.map 
         (\h -> 
             a 
-                [ class "col-1-4"
+                [ class "hero-pad col-md-1-4 col-sm-1-4"
                 , href <| "/details/" ++ Http.encodeUri h.name
                 , hrefClick Navigate <| "/details/" ++ Http.encodeUri h.name
                 ] 

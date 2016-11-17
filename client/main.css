@@ -5,7 +5,7 @@
 }
 
 body {
-  margin: 2em;
+  margin: 5%;
 }
 
 
@@ -61,37 +61,39 @@ input {
 /*Dashboard Styles*/
 
 
-[class*='col-'] {
-  float: left;
-  padding-right: 20px;
-  padding-bottom: 20px;
-}
-[class*='col-']:last-of-type {
-  padding-right: 0;
-}
-.dashboard a {
-  text-decoration: none;
-}
-*, *:after, *:before {
+.hero-pad {
   box-sizing: border-box;
+  display: inline-block;
+  text-decoration: none;
+  width: 100%;
+  margin: 1em 1em 0 0;
 }
+
 .dashboard h3 {
   text-align: center; 
   margin-bottom: 0;
 }
 
-.grid-pad {
-  padding: 10px 0;
-}
-.grid-pad > [class*='col-']:last-of-type {
-  padding-right: 20px;
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-around;
 }
 
-@media (min-width: 600px) {
-  .col-1-4 {
-    width: 25%;
+@media(min-width:480px) {
+  .grid .col-sm-1-4 {
+    width: 46%;
   }
 }
+
+@media(min-width:768px) {
+  .grid .col-md-1-4 {
+    width: 22.5%;
+  }
+}
+
+
 
 .module {
   padding: 20px;
@@ -179,8 +181,18 @@ button.delete {
 
 
 /*Search styles*/
+.search-box ul {
+  padding: 0;
+  margin: 0;
+}
 
-.search-result{
+.search-box input{
+  width: 200px;
+  height: 20px;
+}
+
+.search-result {
+  text-decoration: none;
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;
   border-right: 1px solid gray;
@@ -190,12 +202,14 @@ button.delete {
   background-color: white;
   cursor: pointer;
 }
-#search-box{
-  width: 200px;
-  height: 20px;
+
+.search-result:hover {
+  background: #eee;
 }
 
-
+.search-result a {
+  text-decoration: none;
+} 
 
 /*Hero details*/
 
