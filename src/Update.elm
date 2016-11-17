@@ -48,7 +48,7 @@ update msg model =
 
         
         InputHeroName name ->
-            ( {model | newHero = String.trim name}
+            ( {model | newHero = name}
             , Cmd.none
             ) 
                     
@@ -56,7 +56,7 @@ update msg model =
         AddHero ->
             let
                 isValid =
-                    String.length model.newHero >= 2
+                    String.length (String.trim model.newHero) >= 2
 
                 newModel =
                     case isValid of
@@ -64,7 +64,7 @@ update msg model =
                             { model 
                                 | newHero = ""
                                 , heroes = 
-                                    model.heroes ++ [ Hero model.nextId model.newHero]
+                                    model.heroes ++ [ Hero model.nextId (String.trim model.newHero)]
                                 , nextId = model.nextId + 1 
                             }
                         False ->  
