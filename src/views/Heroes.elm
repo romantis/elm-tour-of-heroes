@@ -10,40 +10,55 @@ import Messages exposing (Msg(..))
 
 import String
 
+
+
+
 (=>) = (,)
+
+
 
 view: Maybe Hero -> List Hero -> String -> Html Msg
 view mselected heroes newHero = 
     div [class "heroes"] 
         [ h2 []  [text "My Heroes"]
-        , addHeroViev newHero
+        , viewAddHero newHero
         , ul [ class ""]
             (heroesList mselected heroes)
-        , myHeroView mselected
+        , viewSelected mselected
         ]
 
-heroesList: Maybe Hero -> List Hero -> List (Html Msg)
-heroesList mselected =
-    List.sortBy .id >>
-    List.map 
-        (\h -> 
-            li 
-                [ classList
-                    [ "selected" => (isSelected h mselected) ]
-                ] 
-                [ strong [ class "badge"] [ text <| toString h.id ] 
-                , span 
-                    [ onClick <| SelectHero h ] 
-                    [ text h.name ] 
-                , button 
-                    [ onClick <| DeleteHero h
-                    , class "delete"
-                    ] 
-                    [ text "x"]
-                ] 
-        )
 
-myHeroView mhero =
+
+heroesList: Maybe Hero -> List Hero -> List (Html Msg)
+heroesList mhero heroes =
+    heroes
+        |> List.sortBy .id
+        |> List.map (viewListItem mhero) 
+    
+     
+
+
+viewListItem : Maybe Hero -> Hero -> Html Msg
+viewListItem mh h =
+    li 
+        [ classList
+            [ "selected" => (isSelected h mh) ]
+        ] 
+        [ strong [ class "badge"] [ text <| toString h.id ] 
+        , span 
+            [ onClick <| SelectHero h ] 
+            [ text h.name ] 
+        , button 
+            [ onClick <| DeleteHero h
+            , class "delete"
+            ] 
+            [ text "x"]
+        ] 
+
+
+
+viewSelected: Maybe Hero -> Html Msg
+viewSelected mhero =
     case mhero of 
         Just h ->
             div []
@@ -56,7 +71,10 @@ myHeroView mhero =
         Nothing -> 
             text ""
 
-addHeroViev newHero =
+
+
+viewAddHero : String -> Html Msg
+viewAddHero newHero =
     div [ class "add-hero"] 
         [ label [] [ text "Hero name:"]
         , input 
@@ -68,6 +86,8 @@ addHeroViev newHero =
         ]
 
 
+
+isSelected : Hero -> Maybe Hero -> Bool
 isSelected hero mselected =
     case mselected of 
         Just h -> 
