@@ -4,7 +4,7 @@ import Html exposing (..)
 import Html.Attributes exposing (class, classList, style,  href, id)
 import Messages exposing(Msg(..))
 
-import Helpers exposing (hrefClick)
+import Helpers exposing (hrefClick, capitalize)
 
 
 (=>) : a -> b -> ( a, b )
@@ -21,7 +21,7 @@ type alias MenuItems = List String
 
 view : PageRoute -> MenuItems -> Html Msg
 view route items =
-  header [ id "header"]
+  header []
     [ h1 [] [ text "Tour of Heroes"]
     , nav [ class "navbar navbar-default" ]
         (List.map (navItem route) items)        
@@ -30,16 +30,12 @@ view route items =
 
 navItem : PageRoute -> PageRoute -> Html Msg
 navItem currentRoute route =
-    let
-        url = 
-            "/" ++ route
-    in
-        a 
-            [ classList ["active" => (currentRoute == route) ]
-            , hrefClick Navigate url
-            , href url
-            ]
-            [ text route ]
+    a 
+        [ classList ["active" => (currentRoute == route) ]
+        , hrefClick Navigate route
+        , href route
+        ]
+        [ text <| capitalize route ]
 
         
 
