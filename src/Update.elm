@@ -30,10 +30,7 @@ update msg model =
             ) 
         
         SelectHero hero ->
-            ( { model 
-                | selected = Just hero
-                , updHero = Just hero
-                }
+            ( { model | selected = Just hero } 
             , Cmd.none
             )
 
@@ -84,18 +81,18 @@ update msg model =
         ChangeName ->
             let 
                 updName : Hero -> Hero -> Hero
-                updName uh ch  =
-                    if uh.id /= ch.id
-                        then ch 
-                        else uh
+                updName updated current  =
+                    if updated.id /= current.id
+                        then current 
+                        else updated
 
                 newModel =
                     case model.updHero of
-                        Just uh -> 
+                        Just updated -> 
                             { model 
                                 | selected = model.updHero
                                 , heroes = 
-                                    List.map (updName uh) model.heroes 
+                                    List.map (updName updated) model.heroes 
                             }      
                         Nothing -> 
                             model
