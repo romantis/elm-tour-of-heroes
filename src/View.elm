@@ -1,11 +1,10 @@
 module View exposing (view)
 
 import Html exposing (Html, div, text, h1)
--- import Html.Attributes exposing (class)
 import Html
 
 import Messages exposing (Msg(..))
-import Models exposing (Model)
+import Models exposing (Model, Hero)
 import Routing exposing (Route(..), routeString)
 import Http
 
@@ -58,10 +57,10 @@ page model =
 
 
 
-
-viewDetailsHelper mupdHero mHero  =
-    case mHero of 
+viewDetailsHelper : Maybe Hero -> Maybe Hero -> Html Msg
+viewDetailsHelper mUpdated mAvailable  =
+    case mAvailable of 
         Just hero -> 
-            HeroDetails.view hero mupdHero 
+            HeroDetails.view hero mUpdated 
         Nothing ->
             NotFound.view
