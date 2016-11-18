@@ -1,4 +1,4 @@
-# Implementation of [Angular2 tutorial app](https://angular.io/docs/ts/latest/tutorial/) in Elm programming language
+# Implementation of [Angular2 tutorial app](https://angular.io/docs/ts/latest/tutorial/) in [Elm](http://elm-lang.org/)
 
 
 ## Prerequisites
