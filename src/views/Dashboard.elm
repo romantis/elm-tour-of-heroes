@@ -38,7 +38,7 @@ viewTopHeroes =
     List.map 
         (\h -> 
             a 
-                [ class "hero-pad col-md-1-4 col-sm-1-4"
+                [ class "hero-pad col-md-1-4 col-sm-1-2"
                 , href <| "/details/" ++ Http.encodeUri h.name
                 , hrefClick Navigate <| "/details/" ++ Http.encodeUri h.name
                 ] 

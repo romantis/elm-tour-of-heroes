@@ -83,7 +83,7 @@ nav a.active {
   justify-content: space-around;
 }
 @media(min-width:480px) {
-  .grid .col-sm-1-4 {
+  .grid .col-sm-1-2 {
     width: 46%;
   }
 }
