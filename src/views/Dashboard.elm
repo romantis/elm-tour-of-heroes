@@ -50,10 +50,8 @@ viewTopHeroes =
 
 
 
-
-
-viewListHeroes: List Hero -> List (Html Msg)
-viewListHeroes =
+viewSearchList: List Hero -> List (Html Msg)
+viewSearchList =
     List.map 
         (\h -> div [ class "search-result"]
             [ a
@@ -64,9 +62,6 @@ viewListHeroes =
             ] 
         )
          
-bestHeroes : List Hero -> List Hero
-bestHeroes =
-    List.drop 1 >> List.take 4
 
 
 viewSearchResults: String -> List Hero -> Html Msg
@@ -76,9 +71,13 @@ viewSearchResults sq heroes =
             heroes 
                 |> List.filter 
                     (\h -> Regex.contains (caseInsensitive <| regex sq) h.name)
-                |> viewListHeroes
+                |> viewSearchList
                 |> ul []   
         else 
             text ""
 
 
+
+bestHeroes : List Hero -> List Hero
+bestHeroes =
+    List.drop 1 >> List.take 4
