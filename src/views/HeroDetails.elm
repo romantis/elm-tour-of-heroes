@@ -10,9 +10,7 @@ import Models exposing (Hero)
 
 view : Hero -> Maybe Hero -> Html Msg
 view hero mupdHero  = 
-    div 
-        [ class "hero-details"
-        ] 
+    div [ class "hero-details"] 
         [ h2 []  
             [text <| heroNameHelper hero.name mupdHero ++ " details!"]
         , div []
@@ -35,9 +33,9 @@ view hero mupdHero  =
         ]
 
 heroNameHelper : String -> Maybe Hero -> String
-heroNameHelper name mh =
-    case mh of 
-        Just h ->
-            h.name 
+heroNameHelper name mUpdated =
+    case mUpdated of 
+        Just updated ->
+            updated.name 
         Nothing ->
             name
