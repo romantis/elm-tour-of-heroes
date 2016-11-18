@@ -190,6 +190,7 @@ button.delete {
   height: 20px;
 }
 .search-result {
+  display: block;
   text-decoration: none;
   border-bottom: 1px solid gray;
   border-left: 1px solid gray;

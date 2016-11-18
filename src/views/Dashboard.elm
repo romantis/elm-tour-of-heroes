@@ -53,13 +53,13 @@ viewTopHeroes =
 viewSearchList: List Hero -> List (Html Msg)
 viewSearchList =
     List.map 
-        (\h -> div [ class "search-result"]
-            [ a
-                [ hrefClick Navigate <| "/details/" ++ Http.encodeUri h.name  
+        (\h -> 
+            a
+                [ class "search-result"
+                , hrefClick Navigate <| "/details/" ++ Http.encodeUri h.name  
                 , href <| "/details/" ++ Http.encodeUri h.name
                 ]
                 [text h.name] 
-            ] 
         )
          
 
